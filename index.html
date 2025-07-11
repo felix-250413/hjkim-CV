@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Hwan-Ju Kim - Curriculum Vitae</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header h2 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+        
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+        
+        .education-item, .employment-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .date {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .degree {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .institution {
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+        
+        .thesis-title {
+            font-style: italic;
+            color: #34495e;
+            margin-top: 10px;
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+        }
+        
+        .publications {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+        }
+        
+        .year-section {
+            margin-bottom: 30px;
+        }
+        
+        .year-title {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .publication-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #27ae60;
+        }
+        
+        .publication-item strong {
+            color: #e74c3c;
+        }
+        
+        .journal-name {
+            font-style: italic;
+            color: #2c3e50;
+        }
+        
+        .sci-badge {
+            background: #27ae60;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-left: 10px;
+        }
+        
+        .non-sci-badge {
+            background: #95a5a6;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-left: 10px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hwan-Ju Kim</h1>
+            <h2>DVM, M.S., Ph.D. candidate</h2>
+            <p>Laboratory of Veterinary Immunology, College of Veterinary Medicine<br>Jeonbuk National University, Republic of Korea</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>felix1116@jbnu.ac.kr</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+82-10-7285-1062</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h3>Research Achievements</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">14</div>
+                        <div class="stat-label">Total Publications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">SCI Papers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">First Author</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <div class="date">Sep. 2021 - Present</div>
+                    <div class="degree">Ph.D. Candidate (Veterinary Immunology)</div>
+                    <div class="institution">Laboratory of Veterinary Immunology, College of Veterinary Medicine<br>Jeonbuk National University, Iksan, Republic of Korea</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="date">Mar. 2019 - Feb. 2021</div>
+                    <div class="degree">Master's degree (M.S.)</div>
+                    <div class="institution">Laboratory of Veterinary Immunology, College of Veterinary Medicine<br>Jeonbuk National University, Iksan, Republic of Korea</div>
+                    <div class="thesis-title">
+                        <strong>Thesis Title:</strong> Contamination degrees and disinfection effects of pathogenic microorganisms of vehicles in domestic slaughterhouses
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="date">Mar. 2012 - Feb. 2018</div>
+                    <div class="degree">Doctor of Veterinary Medicine (DVM)</div>
+                    <div class="institution">College of Veterinary Medicine, Jeonbuk National University<br>Iksan, Republic of Korea</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Employment</h3>
+                <div class="employment-item">
+                    <div class="date">Mar. 2019 - Apr. 2021</div>
+                    <div class="degree">Public Quarantine Veterinarian</div>
+                    <div class="institution">North Branch in Jeollabuk-do Institute of Livestock and Veterinary Research, Republic of Korea</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Skills & Techniques</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🧬 Diagnostics</h4>
+                        <div class="skill-item">DNA/RNA extraction from field samples</div>
+                        <div class="skill-item">Molecular diagnostics based on PCR (conventional, Real-Time etc.)</div>
+                        <div class="skill-item">ELISA, Luminex</div>
+                        <div class="skill-item">Immunofluorescence assay</div>
+                        <div class="skill-item">Sanger sequencing analysis, NGS-based whole genome sequencing prep.</div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>🧪 In vitro experiments</h4>
+                        <div class="skill-item">Mammalian cell and primary cell culture</div>
+                        <div class="skill-item">General virology (virus propagation, virus titration etc.)</div>
+                        <div class="skill-item">Virus concentration (Tangential Flow Filtration, PEG-precipitation)</div>
+                        <div class="skill-item">Molecular cloning and plasmid construction, reverse genetics</div>
+                        <div class="skill-item">Flow cytometry</div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>🐷 In vivo experiments</h4>
+                        <div class="skill-item">Animal experiments in pig model (farrowing pigs, weaning pigs, sows)</div>
+                        <div class="skill-item">Animal experiment study design, handling, necropsy</div>
+                        <div class="skill-item">Isolation of primary immune cells from tissue</div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>📊 Data analysis & software</h4>
+                        <div class="skill-item">R-based statistical analysis and visualization</div>
+                        <div class="skill-item">GraphPad Prism-based statistical analysis and visualization</div>
+                        <div class="skill-item">Multiple Sequence Alignment (DNA star, Clustal omega, MAFFT etc.)</div>
+                        <div class="skill-item">Phylogenetic tree construction (Iqtree, raxml, MEGA etc) and visualization (Figtree, iToL, ggtree packages in R)</div>
+                        <div class="skill-item">NGS data(virus) processing (de novo assembly and/or mapping)</div>
+                        <div class="skill-item">Flow cytometry data analysis (FlowJo)</div>
+                        <div class="skill-item">Plasmid and/or cloning design (SnapGene, Primerblast)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Peer-Reviewed Publications</h3>
+                <div class="publications">
+                    <div class="year-section">
+                        <div class="year-title">2025</div>
+                        <div class="publication-item">
+                            <strong>Park, G. S. Kim, S. C., Kim, H. J.*</strong>, Jeong, C. G., ... & Kim, W. I.
+                            <br>"Immunopathological features of highly pathogenic Korean lineage B (LKB) PRRSV-2: insights into virulence indicators and host immune responses."
+                            <br><em class="journal-name">Frontiers in Immunology</em>, 16, 1599468
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <strong>Kim, S. C., Kim, H. J.*</strong>, Kang, S. C., Rasool. A., ... & Kim, W. I.
+                            <br>"The role of immune checkpoint molecules in PRRSV-2-induced immune suppression: insights from comparative <em>in vivo</em> evaluation including NADC34-like PRRSV."
+                            <br><em class="journal-name">Journal of Virology</em>, e02298-24
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Lim, B. H., Kim, S. C., <strong>Kim, H. J.</strong>, Kim, J. H., Seo. Y. J., ... & Kim, W. I.
+                            <br>"Single-cell transcriptomics of bronchoalveolar lavage during PRRSV infection with different virulence."
+                            <br><em class="journal-name">Nature Communications</em>, 16(1), 1112
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Kim, D. Y., Do, H. S., Lee, D. K., Park, J., Baek, J. H., Kwon, J. H., ... & Kim, H. R.
+                            <br>"Comparative evaluation of commercial multiplex real-time RT-PCR kits for differential detection of PRRSV-1, PRRSV-2, and PCV2 currently circulating in Korean pig farms."
+                            <br><em class="journal-name">Korean Journal of Veterinary Service</em>, 48(2), 89-104
+                            <span class="non-sci-badge">NON-SCI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-section">
+                        <div class="year-title">2024</div>
+                        <div class="publication-item">
+                            Jeong, C. G., Kim, S. C., Lee, S., <strong>Kim, H. J.</strong>, ... & Kim, W. I.
+                            <br>"Pathogenic Characteristics of Five Different Lineage of Korean PRRSV‐2 Isolates (NADC30‐Like, VR2332‐Like, LKA, LKB, and LKC)."
+                            <br><em class="journal-name">Transboundary and Emerging Diseases</em>, 2024(1), 1618472
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Kim, S. C., Lee, T. G., Na, E. J., Moon, S. H., <strong>Kim, H. J.</strong>, ... & Cho, H. S.
+                            <br>"Major Shift of Influenza A Virus of Swine (IAV‐S) by Human‐to‐Swine Spillover of the 2009 Pandemic Virus in Korea."
+                            <br><em class="journal-name">Transboundary and Emerging Diseases</em>, 2024(1), 6366170
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Jeong, C. G., Lee, C. Y., Chae, S. B., Kwon, J. H., ..., <strong>Kim, H. J.</strong>, ... & Oem, J. K.
+                            <br>"Emergence of HPAI H5N6 Clade 2.3. 4.4 b in Wild Birds: A Case Study From South Korea, 2023."
+                            <br><em class="journal-name">Transboundary and Emerging Diseases</em>, 2024(1), 4141478
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Park, G. S., Lee, S., Jeong, M. A., Lee, S. Y., Cho, D. G., ..., <strong>Kim, H. J.</strong>, ... & Kim, C.
+                            <br>"First Trial of a Novel Caseous Lymphadenitis Inactivated Vaccine in South Korea: Experimental Evaluation across Various Animal Models."
+                            <br><em class="journal-name">Pathogens</em>, 13(9), 729
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Lee, J. M., Ryu, J. H., Kim, S. C., <strong>Kim, H. J.</strong>, Rasool, A., Lee, C. Y., ... & Kim, W. I.
+                            <br>"Prevalence of influenza A, C and D viruses in Korean swine farms."
+                            <br><em class="journal-name">Korean Journal of Veterinary Service</em>, 47(4), 193-199
+                            <span class="non-sci-badge">NON-SCI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-section">
+                        <div class="year-title">2023</div>
+                        <div class="publication-item">
+                            <strong>Kim, S. C., Kim, H. J.*</strong>, Moon, S. H., Cho, H. S., & Kim, W. I.
+                            <br>"First Identification and Genomic Characterization of NADC34-Like PRRSV Strains Isolated from MLV-Vaccinated Pigs in Korea."
+                            <br><em class="journal-name">Transboundary and Emerging Diseases</em>, 2023
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Moon, B. M., Chu, K. S., Kim, S. C., <strong>Kim, H. J.</strong>, Kim, D. J., & Kim, W. I.
+                            <br>"Genotypic diversity and prevalence of Porcine circoviruses for slaughter pigs in Korea."
+                            <br><em class="journal-name">Korean Journal of Veterinary Service</em>, 46(4), 315-324
+                            <span class="non-sci-badge">NON-SCI</span>
+                        </div>
+                        
+                        <div class="publication-item">
+                            Kim D. J, Kim S. C., <strong>Kim H. J.</strong>, Park G. S., Kang S. C., and Kim W. I.
+                            <br>"Evaluation of virulence reversion of an attenuated porcine epidemic diarrhea vaccine strain by serial passages in suckling piglets."
+                            <br><em class="journal-name">Korean Journal of Veterinary Service</em>, 46(3), 193-202
+                            <span class="non-sci-badge">NON-SCI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-section">
+                        <div class="year-title">2022</div>
+                        <div class="publication-item">
+                            Kim, J. H., Kim, S. C., <strong>Kim, H. J.</strong>, Jeong, C. G., Park, G. S., ... & Kim, W. I.
+                            <br>"Insight into the Economic Effects of a Severe Korean PRRSV1 Outbreak in a Farrow-to-Nursery Farm."
+                            <br><em class="journal-name">Animals</em>, 12(21), 3024
+                            <span class="sci-badge">SCI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-section">
+                        <div class="year-title">2021</div>
+                        <div class="publication-item">
+                            <strong>Kim H. J.*</strong>, Kim S. C., Jeong C. G., Kim J. Y., Kim J. H., Baek Y. C., Jung Y. J., Kim W. I.
+                            <br>"A study of washing and disinfection process for pig transport vehicles and drivers in abattoirs."
+                            <br><em class="journal-name">Korean Journal of Veterinary Service</em>, 44(1), 51-59
+                            <span class="non-sci-badge">NON-SCI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
